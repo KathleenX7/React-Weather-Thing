@@ -4,10 +4,6 @@ main {
   padding: 2vh;
 }
 
-header{
-  padding: 2vhl
-}
-
 .App {
   text-align: center;
   min-height: 100vh;
@@ -16,8 +12,10 @@ header{
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 10vmin;
   pointer-events: none;
+  padding-left: 5vh;
+  padding-right: 5vh;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -30,11 +28,12 @@ header{
   background-color: #282c34;
   min-height: 10vh;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+  
 }
 
 .App-link {
