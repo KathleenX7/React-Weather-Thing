@@ -2,6 +2,8 @@ main {
   flex-grow: 1;
   text-align: center;
   padding: 2vh;
+  min-height: fit-content;
+  background-color: aqua;
 }
 
 header{
