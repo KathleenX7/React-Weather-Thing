@@ -10,7 +10,7 @@ function App() {
       <main>
 
       </main>
-      <footer>
+      <footer className="footer">
         Page created by Cynthia Lei
       </footer>
     </div>
