@@ -6,15 +6,19 @@ function App() {
   const [searchQuery, setSearchQuery] = useState("");
   const [city, setCity] = useState("");
 
-  const search = () => {
-    fetch("https://geocode.maps.co/search?q=asdguaysgd").then((response) => {
-      console.log(response);
-      setCity(searchQuery);
-    })
-  }
-
   const handleTyping = (event) => {
     setSearchQuery(event.target.value);
+  }
+  
+  const search = () => {
+    fetch(`https://geocode.maps.co/search?q=${searchQuery}`).then((response) => response.json()).then((data) => {
+      console.log(data);
+      if ((data === undefined) || (data.length === 0)) {
+        // error handling
+      } else {
+        setCity(data[0].display_name);
+      }
+    })
   }
 
   return (
