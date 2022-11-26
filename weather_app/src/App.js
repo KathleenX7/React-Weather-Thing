@@ -30,7 +30,7 @@ function App() {
          onChange={handleTyping}
          ></input>
         <button onClick={search}>Search</button>
-        <div>{}</div>
+        <div>{city}</div>
       </main>
       <footer className="footer">
         Page created by Cynthia Lei
