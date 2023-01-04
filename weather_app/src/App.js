@@ -1,10 +1,17 @@
 import './App.css';
 import {useState} from 'react';
+import styles from "./index.css";
 
 function App() {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [city, setCity] = useState("");
+  const [weatherState, setWeatherState] = useState("");
+  const [temperature, setTemperature] = useState("");
+
+  const helperFunctiontoSetWeatherState = (code) => {
+    
+  }
 
   const handleTyping = (event) => {
     setSearchQuery(event.target.value);
@@ -21,6 +28,8 @@ function App() {
         setCity(data[0].display_name);
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data[0].lat}&longitude=${data[0].lon}&current_weather=true`).then((response) => response.json()).then((data2) => {
           console.log(data2);
+          setTemperature(data2.current_weather.temperature);
+          setWeatherState(helperFunctiontoSetWeatherState(data2.current_weather.weathercode));
         })
       }
     })
@@ -40,6 +49,8 @@ function App() {
          ></input>
         <button onClick={search}>Search</button>
         <div>{city}</div>
+        <div><img src={weatherState}></img></div>
+        <div>{temperature}</div>
       </main>
       <footer className="footer">
         Page created by Cynthia Lei
