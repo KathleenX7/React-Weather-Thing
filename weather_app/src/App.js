@@ -10,7 +10,7 @@ function App() {
   const [temperature, setTemperature] = useState("");
 
   const helperFunctiontoSetWeatherState = (code) => {
-    
+
   }
 
   const handleTyping = (event) => {
@@ -28,8 +28,8 @@ function App() {
         setCity(data[0].display_name);
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data[0].lat}&longitude=${data[0].lon}&current_weather=true`).then((response) => response.json()).then((data2) => {
           console.log(data2);
-          setTemperature(data2.current_weather.temperature);
-          setWeatherState(helperFunctiontoSetWeatherState(data2.current_weather.weathercode));
+          setTemperature(`Current temperature: ${data2.current_weather.temperature}°C`);
+          setWeatherState(`/images/${helperFunctiontoSetWeatherState(data2.current_weather.weathercode)}.png`);
         })
       }
     })
@@ -49,7 +49,7 @@ function App() {
          ></input>
         <button onClick={search}>Search</button>
         <div>{city}</div>
-        <div><img src={weatherState}></img></div>
+        <div className=""><img src={weatherState}></img></div>
         <div>{temperature}</div>
       </main>
       <footer className="footer">
