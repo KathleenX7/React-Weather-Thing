@@ -16,6 +16,8 @@ function App() {
       if ((data === undefined) || (data.length === 0)) {
         // error handling
       } else {
+        console.log(data[0]);
+        console.log(`${data[0].lat} ${data[0].lon}`);
         setCity(data[0].display_name);
       }
     })
