@@ -16,9 +16,13 @@ function App() {
       if ((data === undefined) || (data.length === 0)) {
         // error handling
       } else {
-        console.log(data[0]);
-        console.log(`${data[0].lat} ${data[0].lon}`);
+        // console.log(data[0]);
+        // console.log(`${data[0].lat} ${data[0].lon}`);
         setCity(data[0].display_name);
+        fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data[0].lat}&longitude=${data[0].lon}&hourly=temperature_2m`).then((response) => response.json()).then((data2) => {
+          console.log(data2);
+          console.log(data2.hourly);
+        })
       }
     })
   }
