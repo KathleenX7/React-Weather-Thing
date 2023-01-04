@@ -9,8 +9,22 @@ function App() {
   const [weatherState, setWeatherState] = useState("");
   const [temperature, setTemperature] = useState("");
 
-  const helperFunctiontoSetWeatherState = (code) => {
-
+  const helperFunctiontoSetWeatherState = (weatherCode) => {
+    if(weatherCode === 0){
+      return "sun";
+    }else if(weatherCode >= 1 && weatherCode <= 3){
+      return "cloud";
+    }else if(weatherCode <= 48){
+      return "fog";
+    }else if((51 <= weatherCode && weatherCode <= 55) || (61 <= weatherCode && weatherCode <= 65) || (80 <= weatherCode && weatherCode <= 82)){
+      return "rain";
+    }else if(weatherCode <= 67){
+      return "freezing";
+    }else if(weatherCode <= 86){
+      return "snow";
+    }else{
+      return "lightning";
+    }
   }
 
   const handleTyping = (event) => {
