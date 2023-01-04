@@ -43,7 +43,7 @@ function App() {
         fetch(`https://api.open-meteo.com/v1/forecast?latitude=${data[0].lat}&longitude=${data[0].lon}&current_weather=true`).then((response) => response.json()).then((data2) => {
           console.log(data2);
           setTemperature(`Current temperature: ${data2.current_weather.temperature}°C`);
-          setWeatherState(`/images/${helperFunctiontoSetWeatherState(data2.current_weather.weathercode)}.png`);
+          setWeatherState(`./images/${helperFunctiontoSetWeatherState(data2.current_weather.weathercode)}.png`);
         })
       }
     })
@@ -52,7 +52,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={"./Logo.png"} className="App-logo" alt="logo" />
+        <img src={"./logo.png"} className="App-logo" alt="logo" />
         <h1>Weather Thing App</h1>
       </header>
       <main>
