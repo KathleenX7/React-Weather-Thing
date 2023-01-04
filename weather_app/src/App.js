@@ -12,7 +12,7 @@ function App() {
   const helperFunctiontoSetWeatherState = (weatherCode) => {
     if(weatherCode === 0){
       return "sun";
-    }else if(weatherCode >= 1 && weatherCode <= 3){
+    }else if(1 <= weatherCode && weatherCode <= 3){
       return "cloud";
     }else if(weatherCode <= 48){
       return "fog";
